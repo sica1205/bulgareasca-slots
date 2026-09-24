@@ -1,7 +1,7 @@
 const AudioManager = (() => {
     const tracks = [
-    { label: 'Klarinet Kuchek',        file: 'klarinet.ogg' },
     { label: 'Kuchek d-ăsta nebun',   file: 'kuchek2.ogg' },
+    { label: 'Klarinet Kuchek',        file: 'klarinet.ogg' },
     { label: 'Bulgareasca Calu\' OG',  file: 'bulgareasca-calu.ogg' },
     { label: 'Alta bulgareasca',       file: 'alta-bulgareasca.ogg' },
   ];
