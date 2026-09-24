@@ -40,7 +40,24 @@ const AudioManager = (() => {
     if (musicStarted) return;
     loadTrack(trackIdx);
     music.volume = muVol;
-    music.play().then(() => { musicStarted = true; }).catch(() => {});
+    music.play()
+      .then(() => { musicStarted = true; })
+      .catch(() => {
+        document.addEventListener('pointerdown', startMusic, { once: true });
+        document.addEventListener('keydown',     startMusic, { once: true });
+      });
+  }
+
+  function unlock() {
+    Object.values(sfx).forEach(a => {
+      a.muted = true;
+      a.play().catch(() => {});
+      a.pause();
+      a.currentTime = 0;
+      a.muted = false;
+    });
+
+    startMusic();
   }
 
   function playSFX(name) {
@@ -97,6 +114,7 @@ const AudioManager = (() => {
     startMusic,
     stopMusic,
     resumeMusic,
+    unlock,
     playSFX,
     setFxVolume,
     setMusicVolume,
