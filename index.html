@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html lang="ro">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <title>Bulgareasca Calu'</title>
+<link rel="icon" type="image/x-icon" href="favicoblg.ico">
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+
+<body>
+
+  <!-- ═══════════════════ LOADING SCREEN ═══════════════════ -->
+  <div id="loadingScreen" class="screen visible">
+    <div class="logo-horse">🐎</div>
+    <h1 class="logo-title">Bulgareasca Calu'</h1>
+    <div class="loading-bar-track">
+      <div id="loadingBar"></div>
+    </div>
+    <p id="loadingTip"></p>
+  </div>
+
+  <!-- ═══════════════════ MENU SCREEN ═══════════════════ -->
+  <div id="menuScreen" class="screen hidden">
+    <div class="menu-header">
+      <h1>
+        <span class="sign-horse">🐎</span>
+        <span class="sign-text">Bulgareasca Calu'</span>
+        <span class="sign-horse">🐎</span>
+      </h1>
+      <p class="subtitle">Cazinoul cel mai jmeker · Joacă cât vrei
+        · Deschis non-stop</p>
+    </div>
+
+    <div class="menu-layout">
+      <!-- Buttons -->
+      <div class="menu-buttons">
+        <button id="menuStartBtn" class="menu-btn primary">▶ START</button>
+        <button id="menuScoresBtn" class="menu-btn">🏆 SCORURI</button>
+        <button id="menuHelpBtn" class="menu-btn">❓ AJUTOR</button>
+        <button id="menuSettingsBtn" class="menu-btn">⚙️ SETARI</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ═══════════════════ MENU SCORES ═══════════════════ -->
+  <div id="menuScoresModal" class="hidden">
+    <div class="modal-box">
+      <h2>🏆 Scoruri</h2>
+      <ol id="menuLeaderboardList" class="lb-list"></ol>
+      <button id="menuScoresClose" class="menu-btn">Inchide</button>
+    </div>
+  </div>
+
+  <!-- ═══════════════════ SETTINGS PANEL ═══════════════════ -->
+  <div id="settingsPanel" class="overlay-panel hidden">
+    <div class="settings-box">
+      <h2>⚙️ Setari</h2>
+
+      <div class="settings-row">
+        <label>🔊 FX</label>
+        <input type="range" id="settingFxVol" min="0" max="1" step="0.01" />
+      </div>
+      <div class="settings-row">
+        <label>🎵 Muzica</label>
+        <input type="range" id="settingMuVol" min="0" max="1" step="0.01" />
+      </div>
+      <div class="settings-row">
+        <label>🎶 Melodie</label>
+        <select id="settingTrack"></select>
+      </div>
+      <div class="btn-row">
+        <button id="shuffleTrackBtn" class="btn-sm">🔀 Shuffle</button>
+        <button id="clearScoresBtn" class="btn-sm danger">🗑 Sterge scoruri</button>
+      </div>
+
+      <button id="settingsCloseBtn" class="menu-btn">✔ Gata</button>
+    </div>
+  </div>
+
+  <!-- ═══════════════════ HELP SCREEN ═══════════════════ -->
+  <div id="helpScreen" class="screen hidden"></div>
+
+  <!-- ═══════════════════ GAME SCREEN ═══════════════════ -->
+  <div id="gameScreen" class="screen hidden">
+
+    <!-- Top bar -->
+    <div class="game-topbar">
+      <span class="game-logo"><span class="sign-horse">🐎</span> Bulgareasca Calu'</span>
+
+      <div class="topbar-ticker" aria-hidden="true">
+        <div class="ticker-track">
+          <span>⭐ Cazinou non-stop ⭐</span>
+          <span>🐎 Jmecherie pe felie</span>
+          <span>🎁 Bonusuri cai nebunii</span>
+          <span>💸 Valoare mare toate cele</span>
+          <span>⭐ Cazinou non-stop ⭐</span>
+          <span>🐎 Jmecherie pe felie</span>
+          <span>🎁 Bonusuri cai nebunii</span>
+          <span>💸 Valoare mare toate cele</span>
+        </div>
+      </div>
+
+      <button id="inGameOptionsBtn" class="topbar-btn">⚙️ Optiuni</button>
+    </div>
+
+    <!-- Layout -->
+    <div class="game-layout">
+
+      <!-- Slot machine -->
+      <div class="slot-machine">
+
+        <!-- Marquee sign -->
+        <div class="cabinet-marquee">
+          <span class="marquee-text">🐎 Bulgareasca Calu' 🐎</span>
+          <span class="marquee-sub">
+            Pacanele Jmecherele · <b>LEI GREI</b> · Joci pana te saturi
+          </span>
+        </div>
+
+        <!-- Reels -->
+        <div class="reel-window">
+          <div class="slot-grid" id="slotGrid">
+                        <!-- 9 cells -->
+            <div class="slot-cell"><img src="resources/images/cherry.webp" alt="cherry" data-symbol="cherry" /></div>
+            <div class="slot-cell"><img src="resources/images/cherry.webp" alt="cherry" data-symbol="cherry" /></div>
+            <div class="slot-cell"><img src="resources/images/cherry.webp" alt="cherry" data-symbol="cherry" /></div>
+            <div class="slot-cell"><img src="resources/images/cherry.webp" alt="cherry" data-symbol="cherry" /></div>
+            <div class="slot-cell"><img src="resources/images/cherry.webp" alt="cherry" data-symbol="cherry" /></div>
+            <div class="slot-cell"><img src="resources/images/cherry.webp" alt="cherry" data-symbol="cherry" /></div>
+            <div class="slot-cell"><img src="resources/images/cherry.webp" alt="cherry" data-symbol="cherry" /></div>
+            <div class="slot-cell"><img src="resources/images/cherry.webp" alt="cherry" data-symbol="cherry" /></div>
+            <div class="slot-cell"><img src="resources/images/cherry.webp" alt="cherry" data-symbol="cherry" /></div>
+          </div>
+
+          <svg class="paylines" viewBox="0 0 3 3" preserveAspectRatio="none" aria-hidden="true">
+            <line x1="0" y1="0.5" x2="3" y2="0.5" />
+            <line x1="0" y1="2.5" x2="3" y2="2.5" />
+            <line x1="0.5" y1="0" x2="0.5" y2="3" />
+            <line x1="1.5" y1="0" x2="1.5" y2="3" />
+            <line x1="2.5" y1="0" x2="2.5" y2="3" />
+            <line x1="0" y1="0" x2="3" y2="3" />
+            <line x1="3" y1="0" x2="0" y2="3" />
+          </svg>
+        </div>
+
+        <!-- Paytable -->
+                <div class="payout-strip">
+          <div class="payout-item">
+            <img src="resources/images/cherry.webp" alt="cherry" />
+            <b>2×</b>
+          </div>
+          <div class="payout-item">
+            <img src="resources/images/lemon.webp" alt="lemon" />
+            <b>5×</b>
+          </div>
+          <div class="payout-item">
+            <img src="resources/images/watermelon.webp" alt="watermelon" />
+            <b>7×</b>
+          </div>
+          <div class="payout-item">
+            <img src="resources/images/bell.webp" alt="bell" />
+            <b>10×</b>
+          </div>
+          <div class="payout-item">
+            <img src="resources/images/star.webp" alt="star" />
+            <b>15×</b>
+          </div>
+          <div class="payout-item">
+            <img src="resources/images/seven.webp" alt="seven" />
+            <b>30×</b>
+          </div>
+          <div class="payout-item payout-bonus">
+            <img src="resources/images/bonus.webp" alt="bonus" />
+            <b>BONUS</b>
+          </div>
+        </div>
+
+        <div class="spin-controls">
+          <button id="spinBtn" disabled>SPIN</button>
+          <button id="autoSpinBtn" disabled>AUTO</button>
+          <button id="spinLever" class="spin-lever" type="button" aria-label="Maneta"
+            title="Trage de maneta, sefule!"></button>
+        </div>
+      </div>
+
+      <!-- Side panel -->
+      <div class="game-panel">
+
+        <!-- Stats -->
+        <div class="stat-block led">
+          <span class="stat-label">💵 Buget</span>
+          <div class="stat-value" id="budgetDisplay">100</div>
+        </div>
+        <div class="stat-block led">
+          <span class="stat-label">🏆 Scor total</span>
+          <div class="stat-value" id="scoreDisplay">0</div>
+        </div>
+
+        <hr class="panel-divider" />
+
+        <!-- Bet -->
+        <div class="stat-block bet">
+          <span class="stat-label">🎯 Pariu</span>
+          <div class="bet-row">
+            <button id="minusBetBtn" class="bet-arrow" disabled>‹</button>
+            <div id="betDisplay">Bet: 1 LEI</div>
+            <button id="plusBetBtn" class="bet-arrow" disabled>›</button>
+          </div>
+        </div>
+
+        <!-- Result message -->
+        <div id="result"></div>
+
+        <!-- Quick actions -->
+        <div class="panel-actions">
+          <button id="inGameMenuBtn" class="panel-btn">↩ Meniu Principal</button>
+        </div>
+      </div>
+
+    </div><!-- /game-layout -->
+  </div><!-- /gameScreen -->
+
+  <!-- ═══════════════════ IN-GAME OPTIONS ═══════════════════ -->
+  <div id="inGameOptions" class="hidden">
+    <div class="settings-box">
+      <h2>⚙️ Optiuni</h2>
+
+      <div class="settings-row">
+        <label>🔊 FX</label>
+        <input type="range" id="inGameFxSlider" min="0" max="1" step="0.01" />
+      </div>
+      <div class="settings-row">
+        <label>🎵 Muzica</label>
+        <input type="range" id="inGameMuSlider" min="0" max="1" step="0.01" />
+      </div>
+      <div class="settings-row">
+        <label>🎶 Melodie</label>
+        <select id="inGameTrackSelect"></select>
+      </div>
+      <div class="btn-row">
+        <button id="inGamePayoutToggle" class="btn-sm">✖ Payouts: OPRIT</button>
+      </div>
+
+      <button id="inGameOptionsClose" class="menu-btn">✔ Inchide</button>
+    </div>
+  </div>
+
+  <!-- ═══════════════════ EXIT CONFIRM ═══════════════════ -->
+  <div id="exitConfirmModal" class="hidden">
+    <div class="modal-box exit-box">
+      <h2>🏠 Iesi din joc?</h2>
+
+      <p class="exit-text">
+        Esti sigur ca vrei sa iesi din joc?<br />
+        <b>Scorul tau nu se va salva.</b>
+      </p>
+
+      <div class="exit-btns">
+        <button id="exitConfirmYes" class="btn-sm danger">✔ Da, ies</button>
+        <button id="exitConfirmNo" class="btn-sm">✖ Nu, raman</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ═══════════════════ BONUS OVERLAY ═══════════════════ -->
+  <div id="bonusOverlay" class="hidden">
+    <!-- intro: calul alertat, cu zoom in peste ecran -->
+    <div class="bonus-intro" aria-hidden="true">
+      <img src="resources/images/horse-alert.gif" alt="" class="bonus-alert" draggable="false" />
+      <span class="bonus-intro-text">BONUS!</span>
+    </div>
+
+    <div class="bonus-box">
+      <h2>🎁 Alege Sefule!</h2>
+      <div id="giftBoxes"></div>
+      <div id="bonusPrizeResult"></div>
+      <button id="bonusCloseBtn">Continuă →</button>
+    </div>
+  </div>
+
+  <!-- ═══════════════════ SUBMIT SCORE MODAL ═══════════════════ -->
+  <div id="submitModal" class="hidden">
+    <div class="submit-box">
+      <h2>🏆 Scor Nou</h2>
+      <p>Ai pierdut tot. Salveaza-ti scorul si numele aici.</p>
+      <input type="text" id="submitNameInput" placeholder="Numele tau…" maxlength="20" />
+      <div id="submitNameError"></div>
+      <div class="submit-btns">
+        <button id="submitConfirmBtn">✔ Trimite</button>
+        <button id="submitCancelBtn">✖ Skip</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ═══════════════════ EFFECTS LAYERS ═══════════════════ -->
+  <div class="bg-carpet" aria-hidden="true"></div>
+  <div id="moneyConfettiContainer"></div>
+  <div id="horseRunContainer"></div>
+
+  <script type="module" src="js/main.js"></script>
+</body>
+
+</html>
