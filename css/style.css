@@ -643,23 +643,38 @@ body>.bg-carpet {
   color: var(--gold-2);
 }
 
+#loadingScreen,
+#gateScreen {
+  background:
+    radial-gradient(circle at 50% 42%, rgba(255, 200, 80, 0.16), transparent 44%),
+    linear-gradient(180deg, #2c050e 0%, #140106 58%, #050002 100%);
+}
+
 #loadingScreen {
   z-index: 9999;
 
   gap: 20px;
 
-  background:
-    radial-gradient(circle at 50% 42%, rgba(255, 200, 80, 0.16), transparent 44%),
-    linear-gradient(180deg, #2c050e 0%, #140106 58%, #050002 100%);
-
   transition: opacity 0.6s ease;
+}
+
+#gateScreen {
+  z-index: 9998;
+
+  gap: 26px;
+
+  padding:
+    max(24px, env(safe-area-inset-top, 0px)) max(20px, env(safe-area-inset-right, 0px)) max(24px, env(safe-area-inset-bottom, 0px)) max(20px, env(safe-area-inset-left, 0px));
+
+  text-align: center;
 }
 
 #loadingScreen.fade-out {
   opacity: 0;
 }
 
-#loadingScreen .logo-horse {
+#loadingScreen .logo-horse,
+#gateScreen .logo-horse {
   font-size: clamp(3rem, 10vw, 6rem);
 
   filter:
@@ -679,7 +694,8 @@ body>.bg-carpet {
   }
 }
 
-#loadingScreen .logo-title {
+#loadingScreen .logo-title,
+#gateScreen .logo-title {
   font-family: var(--font-fun);
   font-size: clamp(1.5rem, 6vw, 2.9rem);
   letter-spacing: 2px;
@@ -3300,6 +3316,7 @@ select:focus-visible {
   }
 
   #loadingScreen,
+  #gateScreen,
   #menuScreen,
   #gameScreen,
   #helpScreen {
