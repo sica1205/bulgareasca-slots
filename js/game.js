@@ -576,7 +576,7 @@ function startGame() {
 
   stopGameActivity();
 
-  budget = 100; score = 0; bet = 1;
+  budget = 1000; score = 0; bet = 1;
   isSpinning = false; autoSpinOn = false; bonusActive = false; payoutsMode = false;
   symbolImgs = NORMAL_IMGS;
 
