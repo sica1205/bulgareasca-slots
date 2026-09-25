@@ -22,7 +22,7 @@ const Help = (() => {
 
           <section class="help-section">
             <h3>Obiectiv</h3>
-            <p>Incepi cu <strong>100 LEI</strong>. Dai spin, faci combinatii pe randuri, coloane sau diagonale si strangi cat mai multi bani pana te duci pe apa sambetei.</p>
+            <p>Incepi cu <strong>1000 LEI</strong>. Dai spin, faci combinatii pe randuri, coloane sau diagonale si strangi cat mai multi bani pana te duci pe apa sambetei.</p>
           </section>
 
           <section class="help-section">
